@@ -1,0 +1,371 @@
+{
+    "items": [
+        {
+            "id": "1",
+            "name": "biryani",
+            "image": "/assets/images/biryani/biryani.avif"
+        },
+        {
+            "id": "2",
+            "name": "chinese",
+            "image": "/assets/images/chinese/chinese.avif"
+        },
+        {
+            "id": "3",
+            "name": "chole-bhature",
+            "image": "/assets/images/chole-bhature/chole-bhature.avif"
+        },
+        {
+            "id": "4",
+            "name": "coffee",
+            "image": "/assets/images/coffee/coffee.avif"
+        },
+        {
+            "id": "5",
+            "name": "gulab-jamun",
+            "image": "/assets/images/gulab-jamun/gulab-jamun.avif"
+        },
+        {
+            "id": "6",
+            "name": "khichdi",
+            "image": "/assets/images/khichdi/khichdi.avif"
+        },
+        {
+            "id": "7",
+            "name": "lassi",
+            "image": "/assets/images/lassi/lassi.avif"
+        },
+        {
+            "id": "8",
+            "name": "paratha",
+            "image": "/assets/images/paratha/paratha.avif"
+        },
+        {
+            "id": "9",
+            "name": "rasagulla",
+            "image": "/assets/images/rasagulla/rasagulla.avif"
+        },
+        {
+            "id": "10",
+            "name": "idli",
+            "image": "/assets/images/idli/idli.avif"
+        },
+        {
+            "id": "11",
+            "name": "shakes",
+            "image": "/assets/images/shakes/shakes.avif"
+        },
+        {
+            "id": "12",
+            "name": "poori",
+            "image": "/assets/images/poori/poori.avif"
+        },
+        {
+            "id": "13",
+            "name": "dosa",
+            "image": "/assets/images/dosa/dosa.avif"
+        },
+        {
+            "id": "13",
+            "name": "pizza",
+            "image": "/assets/images/pizza/pizza.avif"
+        },
+        {
+            "id": "14",
+            "name": "burgers",
+            "image": "/assets/images/burgers/burgers.avif"
+        }
+    ],
+    "topRestaurants": [
+        {
+            "id": "1",
+            "name": "Pizza Hut",
+            "image": "/assets/images/toprestaurants/pizzahut.avif",
+            "rating": "4.3",
+            "time": "20-30 mins",
+            "type": "Pizza",
+            "place": "Gajuwaka",
+            "price": 285
+        },
+        {
+            "id": "2",
+            "name": "Bunnys Family Restaurant",
+            "image": "/assets/images/toprestaurants/bunny family.avif",
+            "rating": "4.4",
+            "time": "25-30 mins",
+            "type": "Biryani",
+            "place": "Kurmannapalem",
+            "price": 250
+        },
+        {
+            "id": "3",
+            "name": "Subway",
+            "image": "/assets/images/toprestaurants/subway.avif",
+            "rating": "4.2",
+            "time": "15-20 mins",
+            "type": "Healthy Food, Salads",
+            "place": "Steel Plant",
+            "price": 200
+        },
+        {
+            "id": "4",
+            "name": "Grameen Kulfi",
+            "image": "/assets/images/toprestaurants/grameen Kulfi.avif",
+            "rating": "4.7",
+            "time": "30-40 mins",
+            "type": "Ice Cream, Desserts",
+            "place": "Kurmannapalem",
+            "price": 255
+        },
+        {
+            "id": "5",
+            "name": "McDonald's Gourmet Burger",
+            "image": "/assets/images/toprestaurants/mcDonalds.avif",
+            "rating": "4.3",
+            "time": "15-20 mins",
+            "type": "Burger",
+            "place": "Gajuwaka",
+            "price": 185
+        },
+        {
+            "id": "6",
+            "name": "Pastas By Pizza Hut",
+            "image": "/assets/images/toprestaurants/pastas.avif",
+            "rating": "4.1",
+            "time": "15-20 mins",
+            "type": "Pastas",
+            "place": "Kurmannapalem",
+            "price": 365
+        },
+        {
+            "id": "7",
+            "name": "KFC",
+            "image": "/assets/images/toprestaurants/kfc.avif",
+            "rating": "4.1",
+            "time": "15-20 mins",
+            "type": "KFC",
+            "place": "Kurmannapalem",
+            "price": 265
+        },
+        {
+            "id": "8",
+            "name": "McCafe by McDonald's",
+            "image": "/assets/images/toprestaurants/mcCafe.avif",
+            "rating": "4.1",
+            "time": "25-30 mins",
+            "type": "KFC",
+            "place": "Gajuwaka",
+            "price": 159
+        },
+        {
+            "id": "9",
+            "name": "Delights by INOX",
+            "image": "/assets/images/toprestaurants/delights.avif",
+            "rating": "4.1",
+            "time": "25-30 mins",
+            "type": "Delights",
+            "place": "Gajuwaka",
+            "price": 205
+        },
+        {
+            "id": "10",
+            "name": "CakeZone Patisserie",
+            "image": "/assets/images/toprestaurants/cakezone.avif",
+            "rating": "4.1",
+            "time": "25-30 mins",
+            "type": "Delights",
+            "place": "Gajuwaka",
+            "price": 355
+        },
+        {
+            "id": "11",
+            "name": "Ovenfresh Cakes And Desserts",
+            "image": "/assets/images/toprestaurants/ovenfresh.avif",
+            "rating": "4.1",
+            "time": "25-30 mins",
+            "type": "Delights",
+            "place": "Gajuwaka",
+            "price": 255
+        },
+        {
+            "id": "12",
+            "name": "The Dessert Heaven - Pastry",
+            "image": "/assets/images/toprestaurants/the dessert.avif",
+            "rating": "4.1",
+            "time": "25-30 mins",
+            "type": "Delights",
+            "place": "Gajuwaka",
+            "price": 300
+        },
+        {
+            "id": "13",
+            "name": "ITC Fabelle Chocolates",
+            "image": "/assets/images/toprestaurants/itc.avif",
+            "rating": "4.1",
+            "time": "25-30 mins",
+            "type": "Delights",
+            "place": "Gajuwaka",
+            "price": 255
+        },
+        {
+            "id": "14",
+            "name": "NIC Ice Creamsi",
+            "image": "/assets/images/toprestaurants/nic.avif",
+            "rating": "4.1",
+            "time": "25-30 mins",
+            "type": "Delights",
+            "place": "Gajuwaka",
+            "price": 305
+        },
+        {
+            "id": "15",
+            "name": "Kwality Walls Ice Cream",
+            "image": "/assets/images/toprestaurants/kwality.avif",
+            "rating": "4.1",
+            "time": "25-30 mins",
+            "type": "Ice Cream",
+            "place": "Gajuwaka",
+            "price": 155
+        },
+        {
+            "id": "16",
+            "name": "Cheesecakes By CakeZone",
+            "image": "/assets/images/toprestaurants/cheesecakes.avif",
+            "rating": "4.2",
+            "time": "25-30 mins",
+            "type": "Cheesecakes",
+            "place": "Gajuwaka",
+            "price": 150
+        },
+        {
+            "id": "17",
+            "name": "The Red Box",
+            "image": "/assets/images/toprestaurants/redbox.avif",
+            "rating": "4.1",
+            "time": "25-30 mins",
+            "type": "Chinese",
+            "place": "Gajuwaka",
+            "price": 200
+        },
+        {
+            "id": "18",
+            "name": "The Thick Shake Factory",
+            "image": "/assets/images/toprestaurants/thick shake.avif",
+            "rating": "4.8",
+            "time": "25-30 mins",
+            "type": "Shake",
+            "place": "Gajuwaka",
+            "price": 250
+        }
+    ],
+    "onlinedelivey": [
+        {
+            "id": "15",
+            "name": "Kwality Walls Ice Cream",
+            "image": "/assets/images/toprestaurants/kwality.avif",
+            "rating": "4.1",
+            "time": "25-30 mins",
+            "type": "Ice Cream",
+            "place": "Gajuwaka"
+        },
+        {
+            "id": "16",
+            "name": "Cheesecakes By CakeZone",
+            "image": "/assets/images/toprestaurants/cheesecakes.avif",
+            "rating": "4.2",
+            "time": "25-30 mins",
+            "type": "Cheesecakes",
+            "place": "Gajuwaka"
+        },
+        {
+            "id": "17",
+            "name": "The Red Box",
+            "image": "/assets/images/toprestaurants/redbox.avif",
+            "rating": "4.1",
+            "time": "25-30 mins",
+            "type": "Chinese",
+            "place": "Gajuwaka"
+        },
+        {
+            "id": "18",
+            "name": "The Thick Shake Factory",
+            "image": "/assets/images/toprestaurants/thick shake.avif",
+            "rating": "4.8",
+            "time": "25-30 mins",
+            "type": "Shake",
+            "place": "Gajuwaka"
+        },
+        {
+            "id": "5",
+            "name": "McDonald's Gourmet Burger",
+            "image": "/assets/images/toprestaurants/mcDonalds.avif",
+            "rating": "4.3",
+            "time": "15-20 mins",
+            "type": "Burger",
+            "place": "Gajuwaka"
+        },
+        {
+            "id": "6",
+            "name": "Pastas By Pizza Hut",
+            "image": "/assets/images/toprestaurants/pastas.avif",
+            "rating": "4.1",
+            "time": "15-20 mins",
+            "type": "Pastas",
+            "place": "Kurmannapalem"
+        },
+        {
+            "id": "7",
+            "name": "KFC",
+            "image": "/assets/images/toprestaurants/kfc.avif",
+            "rating": "4.1",
+            "time": "15-20 mins",
+            "type": "KFC",
+            "place": "Kurmannapalem"
+        },
+        {
+            "id": "8",
+            "name": "McCafe by McDonald's",
+            "image": "/assets/images/toprestaurants/mcCafe.avif",
+            "rating": "4.1",
+            "time": "25-30 mins",
+            "type": "KFC",
+            "place": "Gajuwaka"
+        },
+        {
+            "id": "9",
+            "name": "Delights by INOX",
+            "image": "/assets/images/toprestaurants/delights.avif",
+            "rating": "4.1",
+            "time": "25-30 mins",
+            "type": "Delights",
+            "place": "Gajuwaka"
+        },
+        {
+            "id": "10",
+            "name": "CakeZone Patisserie",
+            "image": "/assets/images/toprestaurants/cakezone.avif",
+            "rating": "4.1",
+            "time": "25-30 mins",
+            "type": "Delights",
+            "place": "Gajuwaka"
+        },
+        {
+            "id": "11",
+            "name": "Ovenfresh Cakes And Desserts",
+            "image": "/assets/images/toprestaurants/ovenfresh.avif",
+            "rating": "4.1",
+            "time": "25-30 mins",
+            "type": "Delights",
+            "place": "Gajuwaka"
+        },
+        {
+            "id": "12",
+            "name": "The Dessert Heaven - Pastry",
+            "image": "/assets/images/toprestaurants/the dessert.avif",
+            "rating": "4.1",
+            "time": "25-30 mins",
+            "type": "Delights",
+            "place": "Gajuwaka"
+        }
+    ]
+}
