@@ -5,7 +5,7 @@ const multer = require("multer");
 var cors = require("cors")
 app.use(cors());
 
-const port = 5000;
+const port = 3000;
 
 var mysql = require("mysql");
 const winston = require('winston');
@@ -50,6 +50,33 @@ app.get("/menuitem/:menuitemID", (req, res) => {
     con.query(sql, [menuitemID], (err, data) => {
         if (err) return res.json("error");
         return res.json(data);
+    });
+
+});
+
+
+app.get("/images", (req, res) => {
+    const sql = `SELECT m.menuItemID,
+               m.name,
+               m.rating,
+               m.deliverytime,
+               m.type,
+               m.place,
+               m.restaurantID,
+              
+               mi.image_name,
+               mi.imagedata
+        FROM menuitem m
+        LEFT JOIN
+            menuimage mi ON m.menuItemID = mi.menuItemID
+        
+    ;`
+    con.query(sql, (err, data) => {
+        if (err) return res.json("error");
+        let resdata= res.json(data);
+        // console.log(resdata,"res data")
+        // logger.info(resdata.image_name,"image...");
+        return resdata;
     });
 
 });

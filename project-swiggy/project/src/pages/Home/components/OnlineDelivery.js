@@ -6,14 +6,54 @@ export const OnlineDelivery = () => {
     const [items, setItems] = useState([]);
 
 
+    // useEffect(() => {
+    //     async function foodItems() {
+    //         const response = await fetch("http://localhost:5000/menuitem");
+    //         const data = await response.json()
+    //         setItems(data);
+    //     }
+    //     foodItems();
+    // }, [])
+
+    const arrayBufferToBase64 = (buffer) => {
+        let binary = '';
+        const bytes = new Uint8Array(buffer);
+        const len = bytes.byteLength;
+        for (let i = 0; i < len; i++) {
+          binary += String.fromCharCode(bytes[i]);
+        }
+        return window.btoa(binary);
+      };
+ 
     useEffect(() => {
         async function foodItems() {
-            const response = await fetch("http://localhost:5000/menuitem");
+            // const response = await fetch("http://localhost:5000/menuitem");
+            const response = await fetch("http://localhost:3000/images");
             const data = await response.json()
-            setItems(data);
+            console.log(data,"data at top rest");
+            let Res_data=data.map((dt)=>{console.log(dt.imagedata.data," image buffer data");
+                try{
+                    const byteArray = new Uint8Array(dt.imagedata.data);
+ 
+                    const base64String = arrayBufferToBase64(byteArray);
+ 
+                    const base64Image = `data:image/webp;base64,${base64String}`;
+                    console.log(base64Image,"base64image ");
+ 
+                    dt.imagedata=base64Image
+                }catch (error) {
+                    console.error('Error fetching products Images:', error);
+                  }
+ 
+                  return dt;
+            });
+            // console.log(Res_data,"Res_Data ")
+            setItems(Res_data);
+            console.log(Res_data,"Res_Data as items")
         }
         foodItems();
     }, [])
+ 
 
     return (
         <div className="w-[78%] mx-auto">
@@ -35,7 +75,7 @@ export const OnlineDelivery = () => {
                         <div key={item.id}>
                             <div className="hover:scale-95  duration-300 max-w-sm bg-white mt-5 dark:bg-gray-800 dark:border-gray-700" style={{ width: "265px" }}  >
                             <Link to={`/hotel-detail/${item.id}`}>
-                                    <img className="rounded-2xl object-cover" src={item.image} alt="" style={{ width: "300px", height: "200px" }} />
+                                    <img className="rounded-2xl object-cover" src={item.imagedata} alt="" style={{ width: "300px", height: "200px" }} />
                                 </Link>
                                 <div className="mt-3 text-start">
                                 <Link to={`/hotel-detail/${item.id}`}>
