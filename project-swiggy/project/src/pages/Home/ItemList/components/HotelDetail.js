@@ -141,12 +141,13 @@ export const HotelDetail = () => {
         const fetchRestaurantDetail = async () => {
             try {
                 setLoading(true); 
-                const response = await fetch(`http://localhost:8080/topRestaurants/${id}`);
-
+                // const response = await fetch(`http://localhost:8080/topRestaurants/${id}`);
+                // const response = await fetch(` http://localhost:3000/restaurant/${restaurantID}`);
+                const response = await fetch(`http://localhost:3000/restaurant/${id}`);
+               
                 if (!response.ok) {
                     throw new Error("Failed to fetch data");
                 }
-
                 const data = await response.json();
                 setItem(data); 
             } catch (error) {
@@ -177,6 +178,7 @@ export const HotelDetail = () => {
     function handlePrev() {
         setValue((prev) => prev - 80)
     }
+    console.log(item[0].name,"data_____________")
     return (
         <>
         <Header />
@@ -199,19 +201,21 @@ export const HotelDetail = () => {
                     </li>
                 </ol>
             </nav>
-
-            <div className="w-[50%] mx-auto mt-10 overflow-hidden">
-                <h1 className="text-2xl text-start font-bold">{item.name}</h1>
+             {item.map((items,index)=>(
+                <div key={index} className="w-[50%] mx-auto mt-10 overflow-hidden">
+                <h1 className="text-2xl text-start font-bold">{items.name}</h1>
                 <div className="text-start mt-5 p-6 bg-white border border-gray-200 rounded-2xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
                     <div className="flex">
                         <i className="fi fi-sr-circle-star text-green-600 text-lg text-start pr-2"></i>
-                        <h5 className="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white">{item.rating} • ₹100 for two</h5>
+                        <h5 className="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white">{items.rating} • ₹100 for two</h5>
                     </div>
-                    <p className="mb-2 text-sm font-semibold tracking-tight text-red-500 underline dark:text-white">{item.type}</p>
-                    <h5 className="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white">Outlet <span className="text-gray-400 pl-2 font-semibold text-sm">{item.place}</span></h5>
-                    <h5 className="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white">{item.time}</h5>
+                    <p className="mb-2 text-sm font-semibold tracking-tight text-red-500 underline dark:text-white">{items.name}</p>
+                    <h5 className="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white">Outlet <span className="text-gray-400 pl-2 font-semibold text-sm">{items.place}</span></h5>
+                    <h5 className="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white">{items.deliverytime}</h5>
                 </div>
             </div>
+             ))}
+            
             <div className="w-[50%] mx-auto mt-10">
                 <div className="flex  justify-between mt-3">
                     <h1 className="text-2xl font-bold">Deals for you</h1>

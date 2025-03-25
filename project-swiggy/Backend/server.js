@@ -55,13 +55,15 @@ app.get("/menuitem/:menuitemID", (req, res) => {
 });
 
 
-app.get("/images", (req, res) => {
+app.get("/image", (req, res) => {
     const sql = `SELECT m.menuItemID,
                m.name,
                m.rating,
                m.deliverytime,
                m.type,
                m.place,
+               m.price,
+               m.description,
                m.restaurantID,
               
                mi.image_name,
@@ -72,6 +74,38 @@ app.get("/images", (req, res) => {
         
     ;`
     con.query(sql, (err, data) => {
+        if (err) return res.json("error");
+        let resdata= res.json(data);
+        // console.log(resdata,"res data")
+        // logger.info(resdata.image_name,"image...");
+        return resdata;
+    });
+
+});
+
+app.get("/image/:id", (req, res) => {
+
+    const { id } = req.params;
+
+    const sql = `SELECT m.menuItemID,
+               m.name,
+               m.rating,
+               m.deliverytime,
+               m.type,
+               m.place,
+               m.price,
+               m.description,
+               m.restaurantID,
+              
+               mi.image_name,
+               mi.imagedata
+        FROM menuitem m
+        LEFT JOIN
+            menuimage mi ON m.menuItemID = mi.menuItemID
+            where m.menuItemID = ?
+        
+    ;`
+    con.query(sql,[id], (err, data) => {
         if (err) return res.json("error");
         let resdata= res.json(data);
         // console.log(resdata,"res data")
