@@ -1,11 +1,22 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState,useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import { useCart } from "../../../context/CartContext";
 
 export const CartCard = ({ item }) => {
     const { removeFromCart } = useCart();
-
+    const [items, setItems] = useState([]);
     const [count, setCount] = useState(0);
+    const {id} = useParams
+
+useEffect(() => {
+        async function foodItems() {
+            const response = await fetch(`http://localhost:3000/image${id}`);
+            const data = await response.json()
+            setItems(data);
+        }
+        foodItems();
+    }, [id])
+
 
     const increment = () => {
         setCount(count + 1);
@@ -23,7 +34,7 @@ export const CartCard = ({ item }) => {
 
         <div className=" mx-auto p-6 mb-3 bg-white border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <div className="flex">
-                <img src={item.image} alt="" style={{ width: "60px", height: "50px" }} />
+                <img src={item.imagedata} alt="" style={{ width: "60px", height: "50px" }} />
                 <div className="pl-4 text-start">
                     <Link to="#">
                         <h5 class=" text-lg font-bold tracking-tight text-gray-900 dark:text-white">{item.name}</h5>

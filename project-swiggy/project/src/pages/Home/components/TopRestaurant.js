@@ -170,10 +170,10 @@ export const TopRestaurant = () => {
     useEffect(() => {
         async function foodItems() {
             // const response = await fetch("http://localhost:5000/menuitem");
-            const response = await fetch("http://localhost:3000/images");
+            const response = await fetch("http://localhost:3000/image");
             const data = await response.json()
             console.log(data,"data at top rest");
-            let Res_data=data.map((dt)=>{console.log(dt.imagedata.data," image buffer data");
+            let Res_data=data.map((dt)=>{console.log(dt.imagedata.data,"image buffer data");
                 try{
                     const byteArray = new Uint8Array(dt.imagedata.data);
  
@@ -223,10 +223,10 @@ export const TopRestaurant = () => {
                     <div style={{ translate: `-${value}%` }} className={`duration-1000`} key={item.id}>
                         <div className="hover:scale-95 duration-300 max-w-sm bg-white mt-5 dark:bg-gray-800 dark:border-gray-700" style={{ width: "285px" }}>
                             {/* Use Link with the restaurant's id */}
-                            <Link to={`/hotel-detail/${item.id}`}>
+                            <Link to={`/hotel-detail/${item.menuItemID}`}>
                                 <img className="rounded-2xl object-cover" src={item.imagedata} alt={item.name} style={{ width: "300px", height: "200px" }} />
                             </Link>
-                            <Link to={`/hotel-detail/${item.id}`}>
+                            <Link to={`/hotel-detail/${item.menuItemID}`}>
                             <div className="mt-3 text-start">
                                 <h5 className="mb-2 text-lg leading-3 font-bold text-gray-900 dark:text-white">{item.name}</h5>
                                 <div className="flex gap-1">
