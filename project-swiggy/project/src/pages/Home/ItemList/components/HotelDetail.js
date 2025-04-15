@@ -130,20 +130,16 @@ import { TopPicks } from "./TopPicks";
 import { Recommended } from "./Recommended";
 import { Header } from "../../../../components";
 
-export const HotelDetail = () => {
+export const HotelDetail = ({p,setP,items, setItems}) => {
     const [item, setItem] = useState(null);
     const [value, setValue] = useState(0);
-    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const { id } = useParams();
 
     useEffect(() => {
         const fetchRestaurantDetail = async () => {
             try {
-                setLoading(true); 
-                // const response = await fetch(`http://localhost:8080/topRestaurants/${id}`);
-                // const response = await fetch(` http://localhost:3000/restaurant/${restaurantID}`);
-                const response = await fetch(`http://localhost:3000/restaurant/${id}`);
+                const response = await fetch(`http://localhost:3000/menuitem/${id}`);
                
                 if (!response.ok) {
                     throw new Error("Failed to fetch data");
@@ -152,21 +148,11 @@ export const HotelDetail = () => {
                 setItem(data); 
             } catch (error) {
                 setError(error.message); 
-            } finally {
-                setLoading(false); 
-            }
+            } 
         };
 
         fetchRestaurantDetail();
     }, [id]); 
-
-    if (loading) {
-        return <div>Loading...</div>; 
-    }
-
-    if (error) {
-        return <div>Error: {error}</div>; 
-    }
 
     if (!item) {
         return <div>No restaurant found</div>; 
@@ -178,7 +164,7 @@ export const HotelDetail = () => {
     function handlePrev() {
         setValue((prev) => prev - 80)
     }
-    console.log(item[0].name,"data_____________")
+   
     return (
         <>
         <Header />
@@ -277,8 +263,7 @@ export const HotelDetail = () => {
                     <hr className="mt-5 mb-10" />
                 </div>
             </div>
-            {/* Add more restaurant details and related content here */}
-            <TopPicks />
+            <TopPicks p={p} setP={setP} items={items} setItems={setItems} />
             <Recommended />
         </>
 

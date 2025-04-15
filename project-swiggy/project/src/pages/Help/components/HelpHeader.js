@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import Logo from "../../../assets/images/swiggy-logo.png";
+import { useState } from "react";
 
-export const HelpHeader = () => {
+export const HelpHeader = ({ items = [], setItems }) => {
+   const [isCartOpen, setCartOpen] = useState(false);
+
   return (
     <header>
 
@@ -11,9 +14,9 @@ export const HelpHeader = () => {
             <img src={Logo} className="h-12 rounded-xl" alt="swiggy" />
             <div className="flex">
               <Link to="/other">
-              <div className="flex">
-              <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white px-7">HELP</span>
-              </div>
+                <div className="flex">
+                  <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white px-7">HELP</span>
+                </div>
               </Link>
             </div>
 
@@ -26,7 +29,7 @@ export const HelpHeader = () => {
           </button>
           <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
             <ul className="flex flex-col font-medium p-4 pr-6 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <li> 
+              <li>
                 <Link to="/" className="block py-2 px-3 text-gray-900 rounded-sm md:bg-transparent md:hover:text-red-500 md:p-0 md:dark:text-red-500 dark:bg-red-500 md:dark:bg-transparent text-bold bi bi-bag font-bold" aria-current="page"><span className="px-3">Swiggy Corporate</span></Link>
               </li>
               <li>
@@ -41,13 +44,20 @@ export const HelpHeader = () => {
               <li>
                 <Link to="/help" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-500 md:p-0 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent bi bi-question-circle font-bold"><span className="px-3">Help</span></Link>
               </li>
-              <li>
-                <Link to="/login" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-500 md:p-0 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent bi bi-person font-bold"><span className="px-3">Sign In</span></Link>
+             <li>
+                <Link to="/signup" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-500 md:p-0 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent bi bi-person font-bold" onClick={() => setCartOpen(true)}><span className="px-3">Sign In</span></Link>
               </li>
               <li>
                 <div className="relative">
-                <Link to="/cart" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-500 md:p-0 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent bi bi-cart-check font-bold"><span className="px-3">Cart</span></Link>
-                <span className="text-white text-sm absolute -top-2 left-3 bg-orange-500 px-1 rounded-full ">0</span>
+                  <Link
+                    to="/cart"
+                    className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-500 md:p-0 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent bi bi-cart-check font-bold"
+                  >
+                    <span className="px-3">Cart</span>
+                  </Link>
+                  <span className="text-white text-sm absolute -top-2 left-3 bg-orange-500 px-1 rounded-full">
+                    {Array.isArray(items) ? items.length : 0}
+                  </span>
                 </div>
               </li>
             </ul>

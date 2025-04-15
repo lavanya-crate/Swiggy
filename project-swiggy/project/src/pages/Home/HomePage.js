@@ -7,10 +7,10 @@ import { BestCuisines } from "./components/BestCuisines";
 import { Explore } from "./components/Explore";
 import { Footer } from "../../components/Layouts/Footer";
 
-export const HomePage = () => {
+export const HomePage = ({items, setItems}) => {
   return (
     <main>
-       <Header />
+       <Header  items={items} setItems={setItems} />
       <Hero />
       <TopRestaurant />
       <OnlineDelivery />

@@ -170,17 +170,18 @@ export const TopRestaurant = () => {
     useEffect(() => {
         async function foodItems() {
             // const response = await fetch("http://localhost:5000/menuitem");
-            const response = await fetch("http://localhost:3000/image");
+            const response = await fetch("http://localhost:3000/menuitem");
             const data = await response.json()
-            console.log(data,"data at top rest");
-            let Res_data=data.map((dt)=>{console.log(dt.imagedata.data,"image buffer data");
+            // console.log(data,"data at top rest");
+            let Res_data=data.map((dt)=>{
+                // console.log(dt.imagedata.data,"image buffer data");
                 try{
                     const byteArray = new Uint8Array(dt.imagedata.data);
  
                     const base64String = arrayBufferToBase64(byteArray);
  
                     const base64Image = `data:image/webp;base64,${base64String}`;
-                    console.log(base64Image,"base64image ");
+                    // console.log(base64Image,"base64image ");
  
                     dt.imagedata=base64Image
                 }catch (error) {
@@ -191,7 +192,7 @@ export const TopRestaurant = () => {
             });
             // console.log(Res_data,"Res_Data ")
             setItems(Res_data);
-            console.log(Res_data,"Res_Data as items")
+            // console.log(Res_data,"Res_Data as items")
         }
         foodItems();
     }, [])

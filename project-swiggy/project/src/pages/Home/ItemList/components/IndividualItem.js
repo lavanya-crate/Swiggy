@@ -1,19 +1,12 @@
 import { Link } from "react-router-dom";
-import { Header } from "../../../../components";
+
 import { useState, useEffect } from "react";
+import { Header } from "../../../../components/Layouts/Header";
+
 
 export const IndividualItem = () => {
     const [items, setItems] = useState([]);
     
-    
-        // useEffect(() => {
-        //     async function foodItems() {
-        //         const response = await fetch("http://localhost:8080/onlinedelivey");
-        //         const data = await response.json()
-        //         setItems(data);
-        //     }
-        //     foodItems();
-        // }, [])
 
         const arrayBufferToBase64 = (buffer) => {
             let binary = '';
@@ -28,18 +21,16 @@ export const IndividualItem = () => {
         useEffect(() => {
             async function foodItems() {
                 // const response = await fetch("http://localhost:5000/menuitem");
-                const response = await fetch("http://localhost:3000/image");
+                const response = await fetch("http://localhost:3000/menuitem");
                 const data = await response.json()
                 console.log(data,"data at top rest");
-                let Res_data=data.map((dt)=>{console.log(dt.imagedata.data,"image buffer data");
+                let Res_data=data.map((dt)=>{
                     try{
                         const byteArray = new Uint8Array(dt.imagedata.data);
      
                         const base64String = arrayBufferToBase64(byteArray);
      
                         const base64Image = `data:image/webp;base64,${base64String}`;
-                        console.log(base64Image,"base64image ");
-     
                         dt.imagedata=base64Image
                     }catch (error) {
                         console.error('Error fetching products Images:', error);
@@ -47,9 +38,8 @@ export const IndividualItem = () => {
      
                       return dt;
                 });
-                // console.log(Res_data,"Res_Data ")
+               
                 setItems(Res_data);
-                console.log(Res_data,"Res_Data as items")
             }
             foodItems();
         }, [])
@@ -57,7 +47,7 @@ export const IndividualItem = () => {
     
     return (
         <>
-            <Header />
+   <Header />
             <div className="w-[82%] mx-auto">
                 <div className="text-start mt-10">
                     <h1 className="text-4xl font-bold pb-3">Biryani</h1>
@@ -74,7 +64,7 @@ export const IndividualItem = () => {
                                     {items.map((item) => (
                                         <div key={item.id}>
                                             <div className="hover:scale-95  duration-300 max-w-sm bg-white mt-5 dark:bg-gray-800 dark:border-gray-700" style={{ width: "265px" }}  >
-                                            <Link to={`/hotel-detail/${item.id}`}>
+                                            <Link to={`/hotel-detail/${item.menuItemID}`}>
                                                     <img className="rounded-2xl object-cover" src={item.imagedata} alt="" style={{ width: "300px", height: "200px" }} />
                                                 </Link>
                                                 <div className="mt-3 text-start">
@@ -84,7 +74,7 @@ export const IndividualItem = () => {
                                                             <i className="fi fi-sr-circle-star text-green-600"></i>
                                                             <span>{item.rating}</span>
                                                             <span>.</span>
-                                                            <span>{item.time}</span>
+                                                            <span>{item.deliverytime}</span>
                                                         </div>
                                                         <div className="flex flex-col text-gray-800">
                                                             <span>{item.type}</span>

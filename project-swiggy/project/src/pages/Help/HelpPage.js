@@ -1,11 +1,11 @@
-import { Header } from "../../components/Layouts/Header"
+import { HelpHeader } from "./components/HelpHeader";
 import { HelpCard } from "./components/HelpCard";
 
 export const HelpPage = () => {
     return (
 
         <div>
-            <Header />
+            <HelpHeader />
             <HelpCard />
         </div>
     )
