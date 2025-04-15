@@ -5,14 +5,45 @@ export const Hero = () => {
   const [items, setItems] = useState([]);
   const [value, setValue] = useState(0);
 
-  useEffect(() => {
+  const arrayBufferToBase64 = (buffer) => {
+    let binary = '';
+    const bytes = new Uint8Array(buffer);
+    const len = bytes.byteLength;
+    for (let i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return window.btoa(binary);
+  };
+
+useEffect(() => {
     async function foodItems() {
-      const response = await fetch("http://localhost:8080/items");
-      const data = await response.json()
-      setItems(data);
+        // const response = await fetch("http://localhost:5000/menuitem");
+        const response = await fetch("http://localhost:3000/heroimage");
+        const data = await response.json()
+        // console.log(data,"data at top rest");
+        let Res_data=data.map((dt)=>{
+          // console.log(dt.image_data.data,"image buffer data");
+            try{
+                const byteArray = new Uint8Array(dt.image_data.data);
+
+                const base64String = arrayBufferToBase64(byteArray);
+
+                const base64Image = `data:image/webp;base64,${base64String}`;
+                // console.log(base64Image,"base64image ");
+
+                dt.image_data=base64Image
+            }catch (error) {
+                console.error('Error fetching products Images:', error);
+              }
+
+              return dt;
+        });
+        // console.log(Res_data,"Res_Data ")
+        setItems(Res_data);
+        // console.log(Res_data,"Res_Data as items")
     }
     foodItems();
-  }, [])
+}, [])
 
   function handleNext() {
     setValue((prev) => prev + 18)
@@ -38,11 +69,11 @@ export const Hero = () => {
           </div>
         </div>
       </div>
-      <div style={{ translate: `-${value}%` }} className={`flex w-[169%] duration-1000`}>
+      <div style={{ translate: `-${value}%` }} className={`flex w-[150%] duration-1000`}>
         {items.map((item) => (
           <Link to="/individualitems">
             <div key={item.id}>
-              <img src={item.image} alt="" />
+              <img src={item.image_data} alt="" />
 
             </div>
           </Link>
